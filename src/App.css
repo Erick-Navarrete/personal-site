@@ -129,45 +129,26 @@
   position: relative;
 }
 
-/* ── Sticky section — shared by hero and image rows ───────────── */
-/* Every section is position: sticky at top:0 so it stays in view
-   while the next section slides over it. Each gets a higher
-   z-index so it renders above the one before it. */
+/* ── Hero (static, left=text right=photos) ─────────────────────── */
+/* The hero is NOT sticky — it stays in place naturally. Image rows
+   are sticky and stack over it, but their left side is transparent
+   so the hero text shows through as you scroll. This matches the
+   Tianna Wolfson scroll-overlay effect. */
 
-.sticky-section {
-  min-height: 100vh;
-  position: sticky;
-  top: 0;
-}
-
-.sticky-section[data-z="1"] { z-index: 1; }
-.sticky-section[data-z="2"] { z-index: 2; }
-.sticky-section[data-z="3"] { z-index: 3; }
-.sticky-section[data-z="4"] { z-index: 4; }
-
-/* ── Hero ─────────────────────────────────────────────────────── */
 .hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 5% 3rem;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  position: relative;
+  z-index: 1;
   background: var(--bg-primary);
 }
 
-.hero__layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 2rem;
-  max-width: 1100px;
-  width: 100%;
-  align-items: center;
-}
-
 .hero__text {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 4rem 5rem 5%;
 }
 
 .hero__subtitle {
@@ -182,7 +163,7 @@
 
 .hero__name {
   font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 8vw, 6rem);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
   font-weight: 400;
   letter-spacing: 0.08em;
   line-height: 1.05;
@@ -196,8 +177,8 @@
   font-weight: 400;
   line-height: 1.9;
   color: var(--text-secondary);
-  max-width: 600px;
-  margin: 2rem auto 0;
+  max-width: 520px;
+  margin-top: 2rem;
 }
 
 .hero__cta {
@@ -213,6 +194,7 @@
   border: 1px solid var(--accent);
   border-radius: 2px;
   transition: background 0.3s, color 0.3s;
+  width: fit-content;
 }
 
 .hero__cta:hover {
@@ -220,17 +202,15 @@
   color: var(--accent);
 }
 
-.hero__side {
+.hero__photos {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
 }
 
 .hero__photo {
+  flex: 1;
   overflow: hidden;
-  border-radius: 2px;
-  aspect-ratio: 3 / 4;
-  width: 100%;
-  max-width: 400px;
+  min-height: 0;
 }
 
 .hero__photo img {
@@ -240,17 +220,34 @@
   display: block;
 }
 
-@media (max-width: 768px) {
-  .hero__layout {
-    grid-template-columns: 1fr;
+@media (max-width: 1000px) {
+  .hero {
+    grid-template-columns: 50% 50%;
   }
 
-  .hero__side--right {
-    display: none;
+  .hero__text {
+    padding: 4rem 2rem 4rem 4%;
+  }
+}
+
+@media (max-width: 750px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .hero__text {
+    padding: 6rem 2rem 2rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero__photos {
+    flex-direction: row;
   }
 
   .hero__photo {
-    max-width: 300px;
+    aspect-ratio: 3 / 4;
   }
 }
 
@@ -272,15 +269,27 @@
   padding: 6rem 2.5rem;
 }
 
-/* ── Image Row (full-viewport photo section) ──────────────────── */
+/* ── Image Row (full-viewport sticky photo section) ───────────── */
+/* Each image-row is sticky so it stays in view and stacks.
+   The left spacer is TRANSPARENT so the hero text shows through
+   as you scroll — this is the key to the Tianna-style overlay. */
+
 .image-row {
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
   display: grid;
   grid-template-columns: 60% 40%;
-  background: var(--bg-primary);
+  background: transparent;
 }
 
+.image-row[data-z="2"] { z-index: 2; }
+.image-row[data-z="3"] { z-index: 3; }
+.image-row[data-z="4"] { z-index: 4; }
+
 .image-row__spacer {
-  background: var(--bg-secondary);
+  /* Transparent — hero text visible through here */
+  background: transparent;
 }
 
 .image-row__photos {
@@ -318,7 +327,6 @@
     position: relative;
     min-height: auto;
     grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
   }
 
   .image-row__spacer {
@@ -331,6 +339,12 @@
 
   .image-row__item {
     aspect-ratio: 3 / 4;
+  }
+}
+
+@media (max-width: 1000px) {
+  .image-row {
+    grid-template-columns: 50% 50%;
   }
 }
 
