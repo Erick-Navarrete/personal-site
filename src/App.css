@@ -129,17 +129,18 @@
   position: relative;
 }
 
-/* ── Hero (static, left=text right=photos) ─────────────────────── */
-/* The hero is NOT sticky — it stays in place naturally. Image rows
-   are sticky and stack over it, but their left side is transparent
-   so the hero text shows through as you scroll. This matches the
-   Tianna Wolfson scroll-overlay effect. */
+/* ── Hero (sticky, left=text right=photos) ─────────────────────── */
+/* The hero is ALSO sticky at top:0 with the lowest z-index. Image
+   rows stack over it with transparent left sides, so the hero text
+   stays visible on the left as you scroll through the photos. This
+   matches the Tianna Wolfson scroll-overlay effect exactly. */
 
 .hero {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 60% 40%;
-  position: relative;
+  position: sticky;
+  top: 0;
   z-index: 1;
   background: var(--bg-primary);
 }
