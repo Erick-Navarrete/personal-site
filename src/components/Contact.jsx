@@ -2,7 +2,7 @@ export default function Contact() {
   return (
     <section id="contact" className="contact">
       <div className="section__inner fade-in">
-        <h2 className="section__title">Contact Erick Navarrete</h2>
+        <h2 className="section__title">Contact</h2>
 
         <div className="contact__content">
           <div className="contact__info">

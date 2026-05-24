@@ -12,6 +12,7 @@ export default function Footer() {
 
         <div className="footer__legal">
           <a href="#privacy">Privacy Policy</a>
+          <a href="#accessibility">Accessibility Statement</a>
         </div>
 
         <p className="footer__copy">&copy; {new Date().getFullYear()} Erick Navarrete</p>
