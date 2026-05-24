@@ -1,5 +1,12 @@
 import { useState, useEffect } from 'react'
 
+const links = [
+  { label: 'HOME', href: '#hero' },
+  { label: 'ABOUT', href: '#about' },
+  { label: 'PORTFOLIO', href: '#portfolio' },
+  { label: 'CONTACT', href: '#contact' },
+]
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -10,25 +17,16 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const links = [
-    { label: 'HOME', href: '#hero' },
-    { label: 'ABOUT', href: '#about' },
-    { label: 'PORTFOLIO', href: '#portfolio' },
-    { label: 'CONTACT', href: '#contact' },
-  ]
-
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
-      <a className="navbar__logo" href="#hero">EN</a>
+      <a className="navbar__logo" href="#hero">ERICK NAVARRETE</a>
 
       <button
         className={`navbar__toggle ${open ? 'navbar__toggle--active' : ''}`}
         onClick={() => setOpen(!open)}
         aria-label="Toggle navigation"
       >
-        <span />
-        <span />
-        <span />
+        <span /><span /><span />
       </button>
 
       <ul className={`navbar__links ${open ? 'navbar__links--open' : ''}`}>
