@@ -124,9 +124,29 @@
   }
 }
 
+/* ── Site wrapper for stacking sticky sections ────────────────── */
+.site {
+  position: relative;
+}
+
+/* ── Sticky section — shared by hero and image rows ───────────── */
+/* Every section is position: sticky at top:0 so it stays in view
+   while the next section slides over it. Each gets a higher
+   z-index so it renders above the one before it. */
+
+.sticky-section {
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.sticky-section[data-z="1"] { z-index: 1; }
+.sticky-section[data-z="2"] { z-index: 2; }
+.sticky-section[data-z="3"] { z-index: 3; }
+.sticky-section[data-z="4"] { z-index: 4; }
+
 /* ── Hero ─────────────────────────────────────────────────────── */
 .hero {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -252,34 +272,12 @@
   padding: 6rem 2.5rem;
 }
 
-/* ── Site wrapper for stacking sticky sections ────────────────── */
-.site {
-  position: relative;
-}
-
-/* ── Hero (bottom layer, scrolls naturally) ────────────────────── */
-.hero {
-  position: relative;
-  z-index: 1;
-}
-
-/* ── Image Row (stacking sticky scroll overlay) ───────────────── */
-/* Each image-row is position: sticky at top:0 with incrementing
-   z-index. As you scroll, the previous section stays fixed while
-   the next slides over it from below — matching Tianna's site. */
-
+/* ── Image Row (full-viewport photo section) ──────────────────── */
 .image-row {
-  min-height: 100vh;
-  position: sticky;
-  top: 0;
   display: grid;
   grid-template-columns: 60% 40%;
   background: var(--bg-primary);
 }
-
-.image-row:nth-of-type(2) { z-index: 2; }
-.image-row:nth-of-type(3) { z-index: 3; }
-.image-row:nth-of-type(4) { z-index: 4; }
 
 .image-row__spacer {
   background: var(--bg-secondary);

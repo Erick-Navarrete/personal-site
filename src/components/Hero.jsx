@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section id="hero" className="hero">
+    <section id="hero" className="sticky-section hero" data-z="1">
       <div className="hero__layout fade-in">
         <div className="hero__text">
           <p className="hero__subtitle">FINANCE &amp; TECHNOLOGY LEADER</p>

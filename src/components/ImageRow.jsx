@@ -1,6 +1,6 @@
-export default function ImageRow({ photos }) {
+export default function ImageRow({ photos, z }) {
   return (
-    <section className="image-row">
+    <section className={`sticky-section image-row`} data-z={z}>
       <div className="image-row__spacer" />
       <div className="image-row__photos">
         {photos.map((src, i) => (
