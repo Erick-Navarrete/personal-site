@@ -3,7 +3,7 @@ export default function Hero() {
     <section id="hero" className="hero">
       <div className="hero__layout fade-in">
         <div className="hero__photo hero__photo--left">
-          <img src="/images/photo1.svg" alt="Erick Navarrete" />
+          <img src="/images/photo1.jpg" alt="Erick Navarrete" />
         </div>
 
         <div className="hero__content">
@@ -18,7 +18,7 @@ export default function Hero() {
         </div>
 
         <div className="hero__photo hero__photo--right">
-          <img src="/images/photo2.svg" alt="Erick Navarrete" />
+          <img src="/images/photo2.jpg" alt="Erick Navarrete" />
         </div>
       </div>
     </section>
