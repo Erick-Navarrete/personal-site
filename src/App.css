@@ -252,14 +252,34 @@
   padding: 6rem 2.5rem;
 }
 
-/* ── Image Row (full-viewport photo section) ──────────────────── */
+/* ── Site wrapper for stacking sticky sections ────────────────── */
+.site {
+  position: relative;
+}
+
+/* ── Hero (bottom layer, scrolls naturally) ────────────────────── */
+.hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Image Row (stacking sticky scroll overlay) ───────────────── */
+/* Each image-row is position: sticky at top:0 with incrementing
+   z-index. As you scroll, the previous section stays fixed while
+   the next slides over it from below — matching Tianna's site. */
+
 .image-row {
   min-height: 100vh;
+  position: sticky;
+  top: 0;
   display: grid;
   grid-template-columns: 60% 40%;
-  border-top: 1px solid var(--border);
   background: var(--bg-primary);
 }
+
+.image-row:nth-of-type(2) { z-index: 2; }
+.image-row:nth-of-type(3) { z-index: 3; }
+.image-row:nth-of-type(4) { z-index: 4; }
 
 .image-row__spacer {
   background: var(--bg-secondary);
@@ -297,6 +317,7 @@
 
 @media (max-width: 750px) {
   .image-row {
+    position: relative;
     min-height: auto;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -314,6 +335,10 @@
     aspect-ratio: 3 / 4;
   }
 }
+
+/* Contact & Footer sit above the sticky stack */
+.contact { position: relative; z-index: 5; }
+.footer  { position: relative; z-index: 5; }
 
 /* ── Contact ──────────────────────────────────────────────────── */
 .contact {
