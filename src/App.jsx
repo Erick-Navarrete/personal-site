@@ -1,7 +1,6 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
-import About from './components/About'
-import Portfolio from './components/Portfolio'
+import ImageRow from './components/ImageRow'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import './App.css'
@@ -11,8 +10,9 @@ function App() {
     <div className="site">
       <Navbar />
       <Hero />
-      <About />
-      <Portfolio />
+      <ImageRow photos={['/images/photo1.svg', '/images/photo2.svg']} />
+      <ImageRow photos={['/images/photo3.svg', '/images/photo4.svg']} />
+      <ImageRow photos={['/images/photo5.svg', '/images/photo6.svg']} />
       <Contact />
       <Footer />
     </div>
