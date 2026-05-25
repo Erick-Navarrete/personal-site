@@ -1,6 +1,8 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import ImageRow from './components/ImageRow'
+import About from './components/About'
+import Portfolio from './components/Portfolio'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import './App.css'
@@ -13,6 +15,8 @@ function App() {
       <ImageRow photos={['/images/photo1.svg', '/images/photo2.svg']} z={2} />
       <ImageRow photos={['/images/photo3.svg', '/images/photo4.svg']} z={3} />
       <ImageRow photos={['/images/photo5.svg', '/images/photo6.svg']} z={4} />
+      <About />
+      <Portfolio />
       <Contact />
       <Footer />
     </div>

@@ -4,6 +4,7 @@ const links = [
   { label: 'HOME', href: '#hero' },
   { label: 'ABOUT', href: '#about' },
   { label: 'PORTFOLIO', href: '#portfolio' },
+  { label: 'CONTACT', href: '#contact' },
 ]
 
 export default function Navbar() {
