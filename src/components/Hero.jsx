@@ -18,7 +18,7 @@ export default function Hero() {
           <img src="/images/about-photo.svg" alt="Erick Navarrete" />
         </div>
         <div className="hero__photo">
-          <img src="/images/photo1.svg" alt="Erick Navarrete" />
+          <img src="/images/photo1.jpg" alt="Erick Navarrete" />
         </div>
       </div>
     </section>
