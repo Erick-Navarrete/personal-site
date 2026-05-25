@@ -263,7 +263,7 @@
   text-transform: uppercase;
   margin-bottom: 3rem;
   text-align: center;
-  color: var(--text-primary);
+  color: #000000;
 }
 
 .section__inner {
@@ -369,7 +369,7 @@
 .about__bio p {
   font-size: 1.05rem;
   line-height: 1.9;
-  color: var(--text-secondary);
+  color: #444444;
 }
 
 .about__label {
@@ -381,23 +381,23 @@
   margin-bottom: 1.5rem;
 }
 
-.about__list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
 .about__list li {
   padding: 0.75rem 0;
   border-bottom: 1px solid var(--border);
-  color: var(--text-secondary);
+  color: #444444;
   font-size: 0.95rem;
   line-height: 1.6;
 }
 
 .about__list strong {
-  color: var(--text-primary);
+  color: #000000;
   font-weight: 600;
+}
+
+.about__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .about__timeline {
@@ -431,12 +431,12 @@
 
 .about__milestone-body strong {
   font-size: 0.95rem;
-  color: var(--text-primary);
+  color: #000000;
 }
 
 .about__milestone-body span {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: #444444;
 }
 
 @media (max-width: 768px) {
@@ -491,12 +491,12 @@
   font-weight: 400;
   letter-spacing: 0.04em;
   margin-bottom: 0.75rem;
-  color: var(--text-primary);
+  color: #000000;
 }
 
 .portfolio__card p {
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  color: #444444;
   line-height: 1.6;
   flex: 1;
 }
