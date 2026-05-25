@@ -9,12 +9,12 @@ pipelines:
           - npm ci
           - npm run build
           - apt-get update && apt-get install -y lftp
-          - lftp -c "
+          - lftp -e "
               set ftp:ssl-allow no;
               set ftp:passive-mode on;
               set net:timeout 30;
               set net:max-retries 5;
-              set net:reconnect-interval 10;
-              open -u $FTP_USER,$FTP_PASS ftpupload.net;
+              set net:reconnect-interval-base 10;
+              open -u if0_42007874,F9YdOFOBHjFj ftpupload.net;
               mirror -Rev dist/ /htdocs --parallel=4 --exclude-glob=.git;
               bye"
