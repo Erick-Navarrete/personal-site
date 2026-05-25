@@ -11,10 +11,12 @@ function App() {
   return (
     <div className="site">
       <Navbar />
-      <Hero />
-      <ImageRow photos={['/images/photo1.svg', '/images/photo2.svg']} z={2} />
-      <ImageRow photos={['/images/photo3.svg', '/images/photo4.svg']} z={3} />
-      <ImageRow photos={['/images/photo5.svg', '/images/photo6.svg']} z={4} />
+      <div className="overlay">
+        <Hero />
+        <ImageRow photos={['/images/photo1.svg', '/images/photo2.svg']} z={2} />
+        <ImageRow photos={['/images/photo3.svg', '/images/photo4.svg']} z={3} />
+        <ImageRow photos={['/images/photo5.svg', '/images/photo6.svg']} z={4} />
+      </div>
       <About />
       <Portfolio />
       <Contact />

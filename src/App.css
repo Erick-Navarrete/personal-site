@@ -124,16 +124,26 @@
   }
 }
 
-/* ── Site wrapper for stacking sticky sections ────────────────── */
+/* ── Site wrapper ──────────────────────────────────────────────── */
 .site {
   position: relative;
 }
 
+/* ── Overlay wrapper (contains sticky hero + image rows) ──────── */
+/* This wrapper is tall enough to scroll through all the sticky
+   sections. Once you scroll past it, About/Portfolio flow as
+   normal content and are always visible. */
+
+.overlay {
+  position: relative;
+  /* 4 sticky sections × 100vh = 400vh of scroll distance */
+  min-height: 400vh;
+}
+
 /* ── Hero (sticky, left=text right=photos) ─────────────────────── */
-/* The hero is ALSO sticky at top:0 with the lowest z-index. Image
-   rows stack over it with transparent left sides, so the hero text
-   stays visible on the left as you scroll through the photos. This
-   matches the Tianna Wolfson scroll-overlay effect exactly. */
+/* The hero is sticky at top:0 with the lowest z-index inside
+   .overlay. Image rows stack over it with transparent left sides,
+   so the hero text stays visible on the left as you scroll. */
 
 .hero {
   min-height: 100vh;
@@ -353,10 +363,10 @@
 
 /* ── About ────────────────────────────────────────────────────── */
 .about {
-  background: var(--bg-primary);
-  border-top: 1px solid var(--border);
   position: relative;
   z-index: 5;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border);
 }
 
 .about__grid {
@@ -452,10 +462,10 @@
 
 /* ── Portfolio ────────────────────────────────────────────────── */
 .portfolio {
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border);
   position: relative;
   z-index: 5;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
 }
 
 .portfolio__grid {
