@@ -355,6 +355,8 @@
 .about {
   background: var(--bg-primary);
   border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 5;
 }
 
 .about__grid {
@@ -452,6 +454,8 @@
 .portfolio {
   background: var(--bg-secondary);
   border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 5;
 }
 
 .portfolio__grid {
