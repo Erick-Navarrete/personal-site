@@ -15,6 +15,7 @@ pipelines:
               set net:timeout 30;
               set net:max-retries 5;
               set net:reconnect-interval-base 10;
+              set cmd:verbose false;
               open -u if0_42007874,F9YdOFOBHjFj ftpupload.net;
-              mirror -Rev dist/ /htdocs --parallel=4 --exclude-glob=.git;
+              mirror -Rev dist/ /htdocs --parallel=4 --exclude-glob=.git --no-perms;
               bye"
