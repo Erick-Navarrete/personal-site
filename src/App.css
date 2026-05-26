@@ -132,8 +132,8 @@
 /* ── Overlay wrapper (contains sticky hero + image rows) ──────── */
 .overlay {
   position: relative;
-  /* 4 sticky sections × 100vh + scroll room */
-  min-height: 400vh;
+  /* 5 sticky sections × 100vh of scroll distance */
+  min-height: 500vh;
 }
 
 /* ── Hero (sticky, left=text right=photos) ─────────────────────── */
@@ -281,7 +281,8 @@ Section 5 (z=5): NOT sticky, single photo with aspect-ratio. */
 .image-row[data-z="3"] { z-index: 3; grid-template-columns: 63.8% 36.2%; }
 .image-row[data-z="4"] { z-index: 4; grid-template-columns: 71.2% 28.8%; }
 
-.image-row[data-z="5"] { z-index: 5; grid-template-columns: 78% 22%; }
+.image-row[data-z="5"] { z-index: 5; grid-template-columns: 78.8% 21.2%; }
+.image-row[data-z="5"] .image-row__spacer { background: var(--bg-primary); }
 
 .image-row__spacer {
   background: transparent;
