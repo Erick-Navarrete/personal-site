@@ -283,8 +283,12 @@
   top: 0;
   display: flex;
   justify-content: flex-end;
-  align-items: flex-end;
   background: transparent;
+}
+
+/* z=5 is the exception — bottom-aligned single photo */
+.image-row[data-z="5"] {
+  align-items: flex-end;
 }
 
 .image-row[data-z="2"] { z-index: 2; }
