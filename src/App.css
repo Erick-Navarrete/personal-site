@@ -130,21 +130,13 @@
 }
 
 /* ── Overlay wrapper (contains sticky hero + image rows) ──────── */
-/* This wrapper is tall enough to scroll through all the sticky
-   sections. Once you scroll past it, About/Portfolio flow as
-   normal content and are always visible. */
-
 .overlay {
   position: relative;
-  /* 5 sticky sections × 100vh = 500vh of scroll distance */
-  min-height: 500vh;
+  /* 4 sticky sections × 100vh + scroll room */
+  min-height: 400vh;
 }
 
 /* ── Hero (sticky, left=text right=photos) ─────────────────────── */
-/* The hero is sticky at top:0 with the lowest z-index inside
-   .overlay. Image rows stack over it with transparent left sides,
-   so the hero text stays visible on the left as you scroll. */
-
 .hero {
   min-height: 100vh;
   display: grid;
@@ -273,66 +265,38 @@
 }
 
 /* ── Image Row (full-viewport sticky photo section) ───────────── */
-/* Each image-row is sticky so it stays in view and stacks.
-   The left spacer is TRANSPARENT so the hero text shows through
-   as you scroll — this is the key to the Tianna-style overlay. */
+/* Sections 2-4: sticky, 2-column grid — transparent left spacer
+lets hero text show through. Photo column shrinks progressively.
+Section 5 (z=5): NOT sticky, single photo with aspect-ratio. */
 
 .image-row {
   min-height: 100vh;
   position: sticky;
   top: 0;
-  display: flex;
-  justify-content: flex-end;
+  display: grid;
   background: transparent;
 }
 
-/* z=5 is the exception — bottom-aligned single photo */
-.image-row[data-z="5"] {
-  align-items: flex-end;
-}
+.image-row[data-z="2"] { z-index: 2; grid-template-columns: 56.5% 43.5%; }
+.image-row[data-z="3"] { z-index: 3; grid-template-columns: 63.8% 36.2%; }
+.image-row[data-z="4"] { z-index: 4; grid-template-columns: 71.2% 28.8%; }
 
-.image-row[data-z="2"] { z-index: 2; }
-.image-row[data-z="3"] { z-index: 3; }
-.image-row[data-z="4"] { z-index: 4; }
-.image-row[data-z="5"] { z-index: 5; background: var(--bg-primary); }
+.image-row[data-z="5"] { z-index: 5; grid-template-columns: 78% 22%; }
 
 .image-row__spacer {
-  /* Transparent — hero text visible through here */
   background: transparent;
-  /* Takes up remaining left space */
-  flex: 1;
 }
 
 .image-row__photos {
   display: flex;
   flex-direction: column;
   gap: 0;
-  /* Photos stay pinned to right, width shrinks per row */
-  height: 100vh;
-}
-
-.image-row[data-z="2"] .image-row__photos { width: 43.5%; }
-.image-row[data-z="3"] .image-row__photos { width: 36.2%; }
-.image-row[data-z="4"] .image-row__photos { width: 28.8%; }
-
-/* Row 5 (z=5): single centered photo like Tianna's last section */
-.image-row[data-z="5"] .image-row__photos {
-  width: 25%;
-  height: auto;
-  position: absolute;
-  right: 0;
-  bottom: 0;
 }
 
 .image-row__item {
   flex: 1;
   overflow: hidden;
   min-height: 0;
-}
-
-.image-row[data-z="5"] .image-row__item {
-  flex: none;
-  aspect-ratio: 3 / 4;
 }
 
 .image-row__item img {
@@ -348,18 +312,17 @@
 }
 
 @media (max-width: 1000px) {
-  .image-row[data-z="2"] .image-row__photos,
-  .image-row[data-z="3"] .image-row__photos,
-  .image-row[data-z="4"] .image-row__photos,
-  .image-row[data-z="5"] .image-row__photos { width: 50%; }
+  .image-row[data-z="2"] { grid-template-columns: 50% 50%; }
+  .image-row[data-z="3"] { grid-template-columns: 50% 50%; }
+  .image-row[data-z="4"] { grid-template-columns: 50% 50%; }
+  .image-row[data-z="5"] { grid-template-columns: 50% 50%; }
 }
 
 @media (max-width: 750px) {
   .image-row {
     position: relative;
     min-height: auto;
-    display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 
   .image-row__spacer {
@@ -367,8 +330,8 @@
   }
 
   .image-row__photos {
-    width: 100%;
     flex-direction: row;
+    width: 100%;
   }
 
   .image-row__item {
@@ -544,7 +507,7 @@
 
 /* ── Contact & Footer sit above the sticky stack ─────────────── */
 .contact { position: relative; z-index: 5; }
-.footer  { position: relative; z-index: 5; }
+.footer { position: relative; z-index: 5; }
 
 /* ── Contact ──────────────────────────────────────────────────── */
 .contact {

@@ -13,10 +13,10 @@ function App() {
       <Navbar />
       <div className="overlay">
         <Hero />
-        <ImageRow photos={['/images/photo1.jpg', '/images/photo2.jpg']} z={2} />
-        <ImageRow photos={['/images/photo3.jpg', '/images/photo1.jpg']} z={3} />
-        <ImageRow photos={['/images/photo2.jpg', '/images/photo3.jpg']} z={4} />
-        <ImageRow photos={['/images/photo1.jpg']} z={5} />
+        <ImageRow photos={['/images/photo1.jpg']} z={2} />
+        <ImageRow photos={['/images/photo2.jpg']} z={3} />
+        <ImageRow photos={['/images/photo3.jpg']} z={4} />
+        <ImageRow photos={['/images/photo4.svg']} z={5} />
       </div>
       <About />
       <Portfolio />
