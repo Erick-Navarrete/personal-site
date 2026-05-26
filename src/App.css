@@ -132,8 +132,8 @@
 /* ── Overlay wrapper (contains sticky hero + image rows) ──────── */
 .overlay {
   position: relative;
-  /* 5 sticky sections × 100vh of scroll distance */
-  min-height: 500vh;
+  /* 4 sticky sections × 100vh of scroll distance */
+  min-height: 400vh;
 }
 
 /* ── Hero (sticky, left=text right=photos) ─────────────────────── */
@@ -283,10 +283,6 @@ Section 5 (z=5): NOT sticky, single photo with aspect-ratio. */
 .image-row[data-z="3"] { z-index: 3; grid-template-columns: 63.8% 36.2%; }
 .image-row[data-z="4"] { z-index: 4; grid-template-columns: 71.2% 28.8%; }
 
-.image-row[data-z="5"] { z-index: 5; grid-template-columns: 78.8% 21.2%; min-height: 50vh; }
-.image-row[data-z="5"] .image-row__item { flex: none; aspect-ratio: 3 / 4; }
-.image-row[data-z="5"] .image-row__spacer { background: var(--bg-primary); }
-
 .image-row__spacer {
   background: transparent;
 }
@@ -319,7 +315,6 @@ Section 5 (z=5): NOT sticky, single photo with aspect-ratio. */
   .image-row[data-z="2"] { grid-template-columns: 50% 50%; }
   .image-row[data-z="3"] { grid-template-columns: 50% 50%; }
   .image-row[data-z="4"] { grid-template-columns: 50% 50%; }
-  .image-row[data-z="5"] { grid-template-columns: 50% 50%; }
 }
 
 @media (max-width: 750px) {
